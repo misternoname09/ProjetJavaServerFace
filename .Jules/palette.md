@@ -1,0 +1,3 @@
+## 2026-05-15 - [JSF/PrimeFaces Accessibility & Form Structure]
+**Learning:** In JSF/PrimeFaces applications, accessibility is often overlooked, particularly the linkage between `p:outputLabel` and input components. Furthermore, incorrect form nesting or misspelled tags (like `h.form`) and broken data binding variables (mismatched `var` attributes) are common sources of silent UI failure.
+**Action:** Always verify that `p:outputLabel` has a `for` attribute pointing to a valid component `id`. Ensure all input components are within a single, correctly-spelled `<h:form>` and that `p:dataTable` variables match their usage in columns.
