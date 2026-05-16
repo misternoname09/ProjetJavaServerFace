@@ -12,15 +12,15 @@
 <p:accordionPanel>
        <p:tab title="Formulaire d'ajout étudiant">
            <f:view>
-              <h:form>
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}"/> <br></br>
+              <h:form id="form_ajout">
+                 <p:outputLabel for="nom_add" value="Nom: "/>
+                 <p:inputText id="nom_add" value="#{etudiantBean.etudiant.nom}"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}"/> <br></br>
+                 <p:outputLabel for="prenom_add" value="Prénom: "/>
+                 <p:inputText id="prenom_add" value="#{etudiantBean.etudiant.prenom}"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}"/><br></br> 
+                 <p:outputLabel for="date_add" value="Date de Naissance: "/>
+                 <p:calendar id="date_add" value="#{etudiantBean.etudiant.datenaiss}"/><br></br>
                  <br></br>
                  <h:commandButton action="liste" value="Enregistrer"></h:commandButton>
 				</h:form>
