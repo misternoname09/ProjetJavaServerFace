@@ -13,14 +13,14 @@
        <p:tab title="Formulaire d'ajout étudiant">
            <f:view>
               <h:form>
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}"/> <br></br>
+                 <p:outputLabel for="nomAdd" value="Nom: "/>
+                 <p:inputText id="nomAdd" value="#{etudiantBean.etudiant.nom}"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}"/> <br></br>
+                 <p:outputLabel for="prenomAdd" value="Prénom: "/>
+                 <p:inputText id="prenomAdd" value="#{etudiantBean.etudiant.prenom}"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}"/><br></br> 
+                 <p:outputLabel for="dateAdd" value="Date de Naissance: "/>
+                 <p:calendar id="dateAdd" value="#{etudiantBean.etudiant.datenaiss}"/><br></br>
                  <br></br>
                  <h:commandButton action="liste" value="Enregistrer"></h:commandButton>
 				</h:form>
