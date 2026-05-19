@@ -1,0 +1,3 @@
+## 2025-05-19 - JSF Syntax and Accessibility Improvements
+**Learning:** JSF tags must use colon separators (e.g., <h:form>); dot separators (e.g., <h.form>) are invalid. Property references in 'p:dataTable' (e.g., '#{e.nom}') must match the iteration variable name ('var="e"'). In JavaScript 'onclick' attributes, single quotes must be escaped for French text (e.g., 'l\'etudiant') to avoid syntax errors.
+**Action:** Always verify JSF tag syntax and variable mapping. Use 'id' and 'for' on 'p:outputLabel' and 'p:inputText' for accessibility. Ensure all interactive components are within a non-nested '<h:form>'.
