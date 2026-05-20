@@ -1,0 +1,3 @@
+## 2025-05-15 - [JSF and PrimeFaces UX Patterns]
+**Learning:** JSF tags must use colon separators (e.g., `<h:form>`); avoid dot separators which are invalid syntax (e.g., `<h.form>`). JavaScript in `onclick` attributes must have properly escaped single quotes (e.g., `l\'etudiant`) to avoid syntax errors. PrimeFaces `p:outputLabel` components should always be associated with their corresponding inputs using `for` and `id` attributes to ensure accessibility.
+**Action:** Always verify JSF tag namespaces, escape single quotes in inline JS confirmation dialogs, and ensure label-input association for a11y.
