@@ -1,0 +1,3 @@
+## 2025-05-15 - [Accessibility & JS Syntax in JSF]
+**Learning:** In legacy JSF projects, inline JavaScript (like `onclick`) often lacks proper escaping for French accents and apostrophes, which can break the script. Additionally, accessibility attributes like `aria-label` must be applied using the passthrough namespace (`xmlns:a="http://xmlns.jcp.org/jsf/passthrough"`) to be correctly rendered on the client side.
+**Action:** Always check for unescaped characters in JavaScript strings and ensure the passthrough namespace is declared when adding HTML5 or ARIA attributes to JSF/PrimeFaces components.
