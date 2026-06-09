@@ -6,12 +6,12 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-	 
-	
+
+
 	<f:metadata>
 	    <f:event listener="#{etudiantBean.chargerListeEtudiant}" type="preRenderView"></f:event>
 	</f:metadata>
-		
+
 <h:head>
    <title>Liste des Etudiants</title>
 </h:head>
@@ -21,43 +21,42 @@
            <f:view>
               <h:form>
                 <h:outputText value="Liste étudiants"></h:outputText>
-                  <h.form> 
                   <p:dataTable value="#{etudiantBean.listeEtudiant}" var="e"
                    style="margin:auto; text-align:left">
                      <p:column>
                        <f:facet name="header">ID</f:facet>
-                       #{et.id}
+                       #{e.id}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Nom</f:facet>
-                       #{et.nom}
+                       #{e.nom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Prénom</f:facet>
-                       #{et.prenom}
+                       #{e.prenom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Date de Naissance</f:facet>
-                       #{et.dateNais}
+                       #{e.datenaiss}
                      </p:column>
                       <p:column>
                       <f:facet name="header">Modifier</f:facet>
                        <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}"/>
                      </p:column>
-                     
+
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
-                       <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
-                                      action="#{etudiantBean.deleteEtudiant(e.id)}"/>
+                       <h:commandButton value="Supprimer"
+                                      onclick="if(!confirm('Voulez-vous supprimer l\'étudiant #{e.nom} ?')) return false;"
+                                      action="#{etudiantBean.deleteEtudiant(e.id)}"
+                                      a:aria-label="Supprimer l'étudiant #{e.nom} #{e.prenom}"/>
                      </p:column>
                   </p:dataTable>
-                  </h.form>
               </h:form>
            </f:view>
        </p:tab>
 </p:accordionPanel>
-   
+
     <h1>Créer/Editer un Etudiant</h1>
      <p:panelGrid columns="3">
                  <p:outputLabel value="Nom: "/>
