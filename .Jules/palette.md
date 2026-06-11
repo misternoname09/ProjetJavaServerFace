@@ -1,0 +1,3 @@
+## 2025-05-14 - [JSF/PrimeFaces Accessibility and Bug Fixes]
+**Learning:** Legacy JSF applications often suffer from broken form structures (nested forms, invalid tag names like <h.form>) and case-sensitivity issues in EL expressions that can lead to silent failures or broken interactivity. Accessibility is frequently overlooked in these projects.
+**Action:** Always check for nested forms and validate EL method/property case-sensitivity against the Java source. Use the JSF passthrough namespace (`xmlns:a="http://xmlns.jcp.org/jsf/passthrough"`) to retroactively add ARIA labels and placeholders to standard components.
