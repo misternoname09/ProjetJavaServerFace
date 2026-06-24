@@ -1,0 +1,3 @@
+## 2026-06-24 - Improving Legacy JSF Accessibility and Form Structure
+**Learning:** Legacy JSF/PrimeFaces applications often suffer from structural issues like nested `<h:form>` tags which break the lifecycle, and lack of explicit `id`/`for` associations for labels. Additionally, variable mismatches in data tables and case-sensitive method references can quietly break UX.
+**Action:** Always verify form nesting, ensure `p:outputLabel` is correctly linked to its input via `id`, and use `a:aria-label` for row-specific actions in data tables. Consistency in date patterns between display and input (e.g., `f:convertDateTime` and `p:calendar`) is also crucial for a smooth user experience.

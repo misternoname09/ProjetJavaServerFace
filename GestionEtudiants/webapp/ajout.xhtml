@@ -1,34 +1,40 @@
 <!DOCTYPE html >
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
-<h:head>	
+
+<h:head>
 	<title> Formulaire d'ajout etudiant</title>
 </h:head>
 <h:body>
 <p:accordionPanel>
        <p:tab title="Formulaire d'ajout étudiant">
-           <f:view>
-              <h:form>
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}"/> <br></br>
-                 <br></br>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}"/> <br></br>
-                 <br></br>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}"/><br></br> 
-                 <br></br>
-                 <h:commandButton action="liste" value="Enregistrer"></h:commandButton>
+              <h:form id="ajoutEtudiantForm">
+                 <p:panelGrid columns="3">
+                     <p:outputLabel for="nom" value="Nom: "/>
+                     <p:inputText id="nom" value="#{etudiantBean.etudiant.nom}" a:placeholder="Entrez le nom" required="true"/>
+                     <p:message for="nom" />
+
+                     <p:outputLabel for="prenom" value="Prénom: "/>
+                     <p:inputText id="prenom" value="#{etudiantBean.etudiant.prenom}" a:placeholder="Entrez le prénom" required="true"/>
+                     <p:message for="prenom" />
+
+                     <p:outputLabel for="datenaiss" value="Date de Naissance: "/>
+                     <p:calendar id="datenaiss" value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="dd/MM/yyyy" pattern="dd/MM/yyyy" required="true"/>
+                     <p:message for="datenaiss" />
+
+                     <f:facet name="footer">
+                         <h:commandButton action="#{etudiantBean.AddEtudiant(etudiantBean.etudiant)}" value="Enregistrer" />
+                         <h:button outcome="liste" value="Annuler" style="margin-left:10px" />
+                     </f:facet>
+                 </p:panelGrid>
 				</h:form>
-           </f:view>
        </p:tab>
 </p:accordionPanel>
 </h:body>
-	
+
 
 
 
