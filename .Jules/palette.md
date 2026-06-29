@@ -1,0 +1,3 @@
+## 2026-06-29 - [Legacy JSF Form Modernization]
+**Learning:** Legacy JSF codebases often contain non-standard naming conventions (e.g., PascalCase for action methods like `AddEtudiant`) and structural bugs (nested forms, invalid tag syntax like `<h.form>`) that block basic UX functionality. Fixing these functional hurdles is a prerequisite for meaningful accessibility and UX improvements.
+**Action:** Always verify backend Java method names before assuming standard camelCase conventions. Use a single, properly structured `<h:form>` to wrap related interactive elements and avoid nesting, which is invalid in JSF and breaks state management.
