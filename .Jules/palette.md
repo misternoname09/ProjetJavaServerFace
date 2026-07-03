@@ -1,0 +1,3 @@
+## 2026-07-03 - Fixing broken legacy JSF forms as UX foundation
+**Learning:** In legacy JSF projects, basic UX improvements (like adding validation or ARIA labels) are often blocked by fundamental syntax errors such as nested `<h:form>` tags or invalid property references in data tables. A "micro-UX" fix must sometimes encompass these functional corrections to be observable.
+**Action:** Always verify the exact casing of Java methods in the bean (e.g., PascalCase `AddEtudiant` vs standard camelCase) and ensure the XHTML structure follows JSF rules (no nested forms) before layer-cakeing UX enhancements.
