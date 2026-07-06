@@ -1,0 +1,3 @@
+## 2026-07-06 - Fixing structural and accessibility issues in legacy JSF/PrimeFaces
+**Learning:** Legacy JSF applications often suffer from non-semantic or malformed tags (like `<h.form>`) and nested form structures that break the lifecycle. Accessibility for dynamic tables requires unique ARIA labels that include row context (e.g., student names) to be useful for screen reader users.
+**Action:** Always verify form nesting and use the passthrough namespace (`xmlns:a="http://xmlns.jcp.org/jsf/passthrough"`) for ARIA attributes in JSF components. Use `p:message` with `p:panelGrid columns="3"` for clean, accessible validation feedback.
