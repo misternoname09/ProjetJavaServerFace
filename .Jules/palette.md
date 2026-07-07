@@ -1,0 +1,3 @@
+## 2026-07-07 - Accessibility and Error Prevention in JSF DataTables
+**Learning:** JSF command components often lack contextual information for row-specific actions in data tables, which is a significant accessibility barrier. Additionally, unescaped characters in inline JavaScript handlers (like `onclick`) can silently break core functionality.
+**Action:** Always use the JSF passthrough namespace (`xmlns:a="http://xmlns.jcp.org/jsf/passthrough"`) to add `a:aria-label` with row-specific context (e.g., `#{e.nom}`) to action links and buttons. Always sanitize or simplify strings in `onclick` handlers to avoid syntax errors from unescaped quotes.
