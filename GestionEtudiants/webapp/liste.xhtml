@@ -18,60 +18,62 @@
 <h:body>
    <p:accordionPanel>
        <p:tab title="Liste étudiants">
-           <f:view>
-              <h:form>
+
+
                 <h:outputText value="Liste étudiants"></h:outputText>
-                  <h.form> 
+                  <h:form id="formListe">
                   <p:dataTable value="#{etudiantBean.listeEtudiant}" var="e"
                    style="margin:auto; text-align:left">
                      <p:column>
                        <f:facet name="header">ID</f:facet>
-                       #{et.id}
+                       #{e.id}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Nom</f:facet>
-                       #{et.nom}
+                       #{e.nom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Prénom</f:facet>
-                       #{et.prenom}
+                       #{e.prenom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Date de Naissance</f:facet>
-                       #{et.dateNais}
+                       #{e.datenaiss}
                      </p:column>
                       <p:column>
                       <f:facet name="header">Modifier</f:facet>
-                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}"/>
+                       <h:commandLink value="modifier" a:aria-label="Modifier l'etudiant #{e.nom}" action="#{etudiantBean.updateEtudiant(e.id)}"/>
                      </p:column>
                      
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
-                       <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
+                       <h:commandButton value="Supprimer" a:aria-label="Supprimer l'etudiant #{e.nom}"
+                                      onclick=" if(! confirm('voulez-vous supprimer l\'etudiant')) return false;"
                                       action="#{etudiantBean.deleteEtudiant(e.id)}"/>
                      </p:column>
                   </p:dataTable>
-                  </h.form>
-              </h:form>
-           </f:view>
+                  </h:form>
+
+
        </p:tab>
 </p:accordionPanel>
    
+<h:form id="formAjout">
     <h1>Créer/Editer un Etudiant</h1>
      <p:panelGrid columns="3">
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
-                 <br/>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
-                 <br/>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/>
-                 <br/>
-                 <h:commandButton value="Enregistrer" action="#{etudiantBean.addEtudiant(etudiantBean.etudiant)}" />
-                 <br/>
+                 <p:outputLabel for="nom" value="Nom: "/>
+                 <p:inputText id="nom" required="true" value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" /><p:message for="nom" />
+
+                 <p:outputLabel for="prenom" value="Prénom: "/>
+                 <p:inputText id="prenom" required="true" value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" /><p:message for="prenom" />
+
+                 <p:outputLabel for="datenaiss" value="Date de Naissance: "/>
+                 <p:calendar id="datenaiss" required="true" pattern="dd/MM/yyyy" value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/><p:message for="datenaiss" />
+
+                 <h:commandButton value="Enregistrer" action="#{etudiantBean.AddEtudiant(etudiantBean.etudiant)}" />
+
      </p:panelGrid>
+</h:form>
     </h:body>
 
 </html>
