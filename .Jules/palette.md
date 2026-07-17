@@ -1,0 +1,3 @@
+## 2026-07-17 - Case Sensitivity and Syntax in JSF / PrimeFaces Attribute Expressions
+**Learning:** JSF Expression Language (EL) is highly case-sensitive, meaning method bindings like `#{etudiantBean.AddEtudiant}` will fail silently or throw exceptions if named `addEtudiant`. Additionally, XML/XHTML does not recognize backslash escaping within attribute values (e.g., in `a:aria-label`), so single quotes can be used directly when enclosed in double quotes.
+**Action:** Always verify exact method declarations in Java beans and use correct quoting patterns in XHTML attributes without backslash escapes to prevent JSF compilation or rendering failures.
