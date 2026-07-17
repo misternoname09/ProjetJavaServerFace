@@ -19,59 +19,62 @@
    <p:accordionPanel>
        <p:tab title="Liste étudiants">
            <f:view>
-              <h:form>
+              <h:form id="formListe">
                 <h:outputText value="Liste étudiants"></h:outputText>
-                  <h.form> 
                   <p:dataTable value="#{etudiantBean.listeEtudiant}" var="e"
                    style="margin:auto; text-align:left">
                      <p:column>
                        <f:facet name="header">ID</f:facet>
-                       #{et.id}
+                       #{e.id}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Nom</f:facet>
-                       #{et.nom}
+                       #{e.nom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Prénom</f:facet>
-                       #{et.prenom}
+                       #{e.prenom}
                      </p:column>
                       <p:column>
                        <f:facet name="header">Date de Naissance</f:facet>
-                       #{et.dateNais}
+                       <h:outputText value="#{e.datenaiss}">
+                           <f:convertDateTime pattern="dd/MM/yyyy" />
+                       </h:outputText>
                      </p:column>
                       <p:column>
                       <f:facet name="header">Modifier</f:facet>
-                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}"/>
+                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}" a:aria-label="Modifier l'étudiant #{e.nom} #{e.prenom}"/>
                      </p:column>
                      
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
                        <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
-                                      action="#{etudiantBean.deleteEtudiant(e.id)}"/>
+                                      onclick="return confirm('Voulez-vous vraiment supprimer l\'étudiant #{e.prenom} #{e.nom} ?');"
+                                      action="#{etudiantBean.deleteEtudiant(e.id)}"
+                                      a:aria-label="Supprimer l'étudiant #{e.nom} #{e.prenom}"/>
                      </p:column>
                   </p:dataTable>
-                  </h.form>
               </h:form>
            </f:view>
        </p:tab>
 </p:accordionPanel>
    
     <h1>Créer/Editer un Etudiant</h1>
+    <h:form id="formAjout">
      <p:panelGrid columns="3">
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
+                 <p:outputLabel for="nomInput" value="Nom: "/>
+                 <p:inputText id="nomInput" value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" required="true" requiredMessage="Le nom est requis" />
                  <br/>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
+                 <p:outputLabel for="prenomInput" value="Prénom: "/>
+                 <p:inputText id="prenomInput" value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" required="true" requiredMessage="Le prénom est requis" />
                  <br/>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/>
+                 <p:outputLabel for="datenaissInput" value="Date de Naissance: "/>
+                 <p:calendar id="datenaissInput" value="#{etudiantBean.etudiant.datenaiss}" pattern="dd/MM/yyyy" a:placeholder="votre date de naissance" required="true" requiredMessage="La date de naissance est requise" />
                  <br/>
-                 <h:commandButton value="Enregistrer" action="#{etudiantBean.addEtudiant(etudiantBean.etudiant)}" />
+                 <h:commandButton value="Enregistrer" action="#{etudiantBean.AddEtudiant(etudiantBean.etudiant)}" />
                  <br/>
      </p:panelGrid>
+    </h:form>
     </h:body>
 
 </html>
