@@ -1,0 +1,3 @@
+## 2026-07-20 - [JSF DataTable Variable Scoping & Form Nesting]
+**Learning:** JSF datatables require precise variable binding ('var' attribute) and do not support nested '<h:form>' or '<h.form>' tags, which disrupt the JSF lifecycle and render form submissions inactive. Explicit label-input associations via 'for' attribute and ARIA attributes via passthrough namespaces dramatically improve form accessibility.
+**Action:** Always verify that JSF components are wrapped in a single, unnested form, table row variables exactly match the 'var' attribute, and accessibility attributes are correctly wired with proper quoting in the passthrough namespace.
