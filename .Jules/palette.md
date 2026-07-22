@@ -1,0 +1,5 @@
+## 2026-07-20 - Aligning Validation and Form Layouts in Legacy PrimeFaces Forms
+
+**Learning:** In PrimeFaces legacy forms, developers often resort to layout hacks like empty `<br/>` elements to manage alignment inside multi-column components (such as `<p:panelGrid columns="3">`). We can cleanly align labels, inputs, and validation feedback by replacing these hacks with `<p:message>` components that explicitly target the input's `id`. This fixes the layout while simultaneously providing immediate, accessible, and screen-reader-friendly validation feedback. Furthermore, JSF EL method bindings are strictly case-sensitive and must align with non-standard PascalCase backend names (like `AddEtudiant`) rather than assumed camelCase.
+
+**Action:** When working on PrimeFaces form layout or alignment, replace arbitrary line breaks and whitespace components with standard `<p:message>` fields inside `columns="3"` grids, connect `p:outputLabel` using the `for` attribute, and always verify backend method casing inside Java source files before correcting EL action expressions.
