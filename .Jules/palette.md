@@ -1,0 +1,3 @@
+## 2026-07-20 - JSF and PrimeFaces Form Accessibility and Lifecycle Correction
+**Learning:** In legacy JSF projects, nested forms (such as typoed `<h.form>` inside an `<h:form>`) completely break the lifecycle of interactive elements, rendering screen reader support and form inputs dysfunctional. Explicitly associating `<p:outputLabel>` with `<p:inputText>` via the `for` attribute and adding inline `<p:message>` validation feedback with matching ID targets is highly effective for making standard JSF/PrimeFaces forms accessible and fully operational.
+**Action:** Always check for non-standard HTML/JSF form wrappers first, separate the forms cleanly, and explicitly pair labels to input components using matching `id`/`for` attributes while displaying inline feedback.
