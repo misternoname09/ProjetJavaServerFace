@@ -1,0 +1,9 @@
+## 2026-07-24 - [JSF & PrimeFaces Forms & Accessibility Improvements]
+**Learning:** Legacy JSF/PrimeFaces applications can have several silent blockers that completely disable forms and table interactions. Key insights include:
+1. **Form Scoping & Nested Forms:** JSF does not support nested `<h:form>` tags. Pages combining complex components (like `<p:accordionPanel>`) and forms must use independent sibling forms (e.g., `<h:form id="formListe">` and `<h:form id="formAjout">`) to ensure correct postback execution.
+2. **Table Iteration Variables:** If the `var` attribute on `p:dataTable` doesn't match the row property references, the columns will render empty. Ensuring a surgical match (e.g., `var="et"` matching `#{et.nom}`) is highly efficient and avoids massive rewrites.
+3. **Escaping inside HTML Event Handlers:** Unescaped single quotes/apostrophes in JS snippets (like `confirm('... l'etudiant')`) break JavaScript execution. Rephrasing prompts to avoid apostrophes (e.g., `Voulez-vous vraiment supprimer cet étudiant ?`) makes localization cleaner and avoids syntax errors.
+4. **Accessible DataTable Actions:** Table row actions (Modifier, Supprimer) are screen-reader-unfriendly when identical across rows. Utilizing the passthrough namespace (`xmlns:a="http://xmlns.jcp.org/jsf/passthrough"`) with `a:aria-label` allows embedding row-specific details (e.g., `a:aria-label="Modifier l'étudiant #{et.nom}"`) for screen readers.
+5. **Expression Language (EL) Case Sensitivity:** Method calls in JSF action bindings are strictly case-sensitive. The UI must match the Java code exactly (e.g., `AddEtudiant` instead of `addEtudiant`).
+
+**Action:** Apply independent forms, precise iterator variables matching properties, safe apostrophe-free JS confirmation strings, connected screen-reader-friendly labels, and proper validation inputs combined with standard `p:message` feedback elements.
