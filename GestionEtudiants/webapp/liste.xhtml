@@ -19,10 +19,9 @@
    <p:accordionPanel>
        <p:tab title="Liste étudiants">
            <f:view>
-              <h:form>
+              <h:form id="formListe">
                 <h:outputText value="Liste étudiants"></h:outputText>
-                  <h.form> 
-                  <p:dataTable value="#{etudiantBean.listeEtudiant}" var="e"
+                  <p:dataTable value="#{etudiantBean.listeEtudiant}" var="et"
                    style="margin:auto; text-align:left">
                      <p:column>
                        <f:facet name="header">ID</f:facet>
@@ -38,40 +37,42 @@
                      </p:column>
                       <p:column>
                        <f:facet name="header">Date de Naissance</f:facet>
-                       #{et.dateNais}
+                       #{et.datenaiss}
                      </p:column>
                       <p:column>
                       <f:facet name="header">Modifier</f:facet>
-                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}"/>
+                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(et.id)}"
+                                      a:aria-label="Modifier l'etudiant #{et.nom} #{et.prenom}"/>
                      </p:column>
                      
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
                        <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
-                                      action="#{etudiantBean.deleteEtudiant(e.id)}"/>
+                                      onclick="if (!confirm('Voulez-vous supprimer l\'etudiant ?')) return false;"
+                                      action="#{etudiantBean.deleteEtudiant(et.id)}"
+                                      a:aria-label="Supprimer l'etudiant #{et.nom} #{et.prenom}"/>
                      </p:column>
                   </p:dataTable>
-                  </h.form>
               </h:form>
            </f:view>
        </p:tab>
 </p:accordionPanel>
    
     <h1>Créer/Editer un Etudiant</h1>
-     <p:panelGrid columns="3">
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
-                 <br/>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
-                 <br/>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/>
-                 <br/>
-                 <h:commandButton value="Enregistrer" action="#{etudiantBean.addEtudiant(etudiantBean.etudiant)}" />
-                 <br/>
-     </p:panelGrid>
+    <h:form id="formAjout">
+     <h:panelGrid columns="3">
+                 <p:outputLabel value="Nom: " for="nomInput"/>
+                 <p:inputText id="nomInput" value="#{etudiantBean.etudiant.nom}" required="true" a:placeholder="votre nom" />
+                 <p:message for="nomInput" />
+                 <p:outputLabel value="Prénom: " for="prenomInput"/>
+                 <p:inputText id="prenomInput" value="#{etudiantBean.etudiant.prenom}" required="true" a:placeholder="votre prénom" />
+                 <p:message for="prenomInput" />
+                 <p:outputLabel value="Date de Naissance: " for="datenaissInput"/>
+                 <p:calendar id="datenaissInput" value="#{etudiantBean.etudiant.datenaiss}" required="true" pattern="dd/MM/yyyy" a:placeholder="votre date de naissance"/>
+                 <p:message for="datenaissInput" />
+                 <h:commandButton value="Enregistrer" action="#{etudiantBean.AddEtudiant(etudiantBean.etudiant)}" />
+     </h:panelGrid>
+    </h:form>
     </h:body>
 
 </html>
