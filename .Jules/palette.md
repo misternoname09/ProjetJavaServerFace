@@ -1,0 +1,3 @@
+## 2026-07-26 - [Accessible Form Fields and Inline Validation Feedback in JSF/PrimeFaces]
+**Learning:** In legacy JSF/PrimeFaces forms, replacing awkward spacer elements like `<br/>` inside a 3-column `<p:panelGrid>` with matching `<p:message>` tags offers an elegant, accessible, and structured three-column layout. Pairing `p:outputLabel` with `for` and `id` attributes ensures input labels are correctly linked and read by screen readers, while providing inline feedback upon form submission.
+**Action:** When working on JSF/PrimeFaces forms, always layout fields using a 3-column grid containing: (1) Output label with a `for` attribute, (2) Input component with corresponding `id` and `required="true"`, and (3) A matching `<p:message>` component.
