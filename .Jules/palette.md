@@ -1,0 +1,3 @@
+## 2026-07-28 - JSF Form Structure and Input Associations
+**Learning:** JSF does not support nested forms, and using mismatched table variables or incorrect casing in action methods breaks functional submit actions completely. To improve accessibility and user feedback, using a 3-column `p:panelGrid` structure with `p:outputLabel` explicitly connected to inputs via `for`/`id` paired with `p:message` ensures screen-reader compatibility and inline validation feedback.
+**Action:** Always verify form nesting, ensure method/property casings match Java definitions, explicitly connect output labels, and use `p:message` for robust, accessible form validation in JSF.
