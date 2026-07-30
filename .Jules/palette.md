@@ -1,0 +1,3 @@
+## 2026-07-30 - Standardizing Three-Column Validation Layouts in PrimeFaces
+**Learning:** Leveraging the native PrimeFaces `p:panelGrid columns="3"` component simplifies layout complexity by neatly pairing an explicit form label (`p:outputLabel` with `for`), its associated interactive input control, and an inline validation feedback container (`p:message`). This layout pattern eliminates structural noise (such as extraneous line breaks) and guarantees robust, accessible, and responsive visual flow.
+**Action:** Always favor structured, multi-column panel grids for form controls rather than unassociated `<br/>` spacing tags, ensuring each field is immediately accompanied by its dedicated `<p:message>` placeholder.
