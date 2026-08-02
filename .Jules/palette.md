@@ -1,0 +1,5 @@
+## 2026-08-02 - JSF Data Table Variable Alignment and Attribute Passthrough
+
+**Learning:** In legacy PrimeFaces/JSF data tables, table columns referencing a different variable name than the table's `var` attribute will silently render empty columns without throwing explicit server-side errors. Additionally, embedding unescaped single quotes inside inline JavaScript attributes (such as `onclick="... confirm('l'etudiant') ..."`) causes syntax errors on the client side, breaking critical user confirmation interactions. Finally, HTML5 passthrough attributes (like `a:aria-label`) enable seamless accessibility injections when the appropriate namespace is declared.
+
+**Action:** When auditing or enhancing legacy JSF list views, verify that the table's iteration variable aligns perfectly with all column references and sanitize/escape single quotes in inline JavaScript handlers. Use passthrough namespaces (`xmlns:a`) to easily add ARIA labels to standard JSF action components without requiring heavy UI redesigns.
