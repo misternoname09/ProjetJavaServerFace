@@ -42,14 +42,15 @@
                      </p:column>
                       <p:column>
                       <f:facet name="header">Modifier</f:facet>
-                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}"/>
+                       <h:commandLink value="modifier" action="#{etudiantBean.updateEtudiant(e.id)}" a:aria-label="Modifier l'étudiant #{e.nom}"/>
                      </p:column>
                      
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
                        <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
-                                      action="#{etudiantBean.deleteEtudiant(e.id)}"/>
+                                      onclick="if (!confirm('Voulez-vous supprimer cet étudiant ?')) return false;"
+                                      action="#{etudiantBean.deleteEtudiant(e.id)}"
+                                      a:aria-label="Supprimer l'étudiant #{e.nom}"/>
                      </p:column>
                   </p:dataTable>
                   </h.form>
