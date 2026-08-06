@@ -1,0 +1,3 @@
+## 2026-08-06 - Avoiding JavaScript Syntax Errors in JSF Event Handlers
+**Learning:** In legacy JSF views containing French text inside JavaScript onclick confirmation attributes (like `confirm('voulez-vous supprimer l'etudiant')`), unescaped single quotes/apostrophes terminate the JS string literal prematurely. This results in a JavaScript syntax error, rendering the entire confirmation and submission functionality broken.
+**Action:** Always avoid French contractions with apostrophes (such as "l'etudiant") inside inline JavaScript strings. Use safe alternative phrasing such as "cet étudiant" to prevent escaping and parsing issues altogether.
