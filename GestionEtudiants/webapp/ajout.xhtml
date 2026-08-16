@@ -1,36 +1,33 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 	
 <h:head>	
-	<title> Formulaire d'ajout etudiant</title>
+	<title>Formulaire d'ajout etudiant</title>
 </h:head>
 <h:body>
 <p:accordionPanel>
        <p:tab title="Formulaire d'ajout étudiant">
            <f:view>
-              <h:form>
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}"/> <br></br>
+              <h:form id="formAjout">
+                 <p:outputLabel for="nom" value="Nom: "/>
+                 <p:inputText id="nom" value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}"/> <br></br>
+                 <p:outputLabel for="prenom" value="Prénom: "/>
+                 <p:inputText id="prenom" value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom"/> <br></br>
                  <br></br>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}"/><br></br> 
+                 <p:outputLabel for="datenaiss" value="Date de Naissance: "/>
+                 <p:calendar id="datenaiss" value="#{etudiantBean.etudiant.datenaiss}" pattern="dd/MM/yyyy" a:placeholder="dd/mm/yyyy"/><br></br>
                  <br></br>
-                 <h:commandButton action="liste" value="Enregistrer"></h:commandButton>
+                 <h:commandButton action="liste" value="Enregistrer"/>
+                 <h:commandButton action="liste" value="Annuler" immediate="true" style="margin-left: 10px;"/>
 				</h:form>
            </f:view>
        </p:tab>
 </p:accordionPanel>
 </h:body>
-	
-
-
-
-
 </html>
