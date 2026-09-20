@@ -1,0 +1,3 @@
+## 2026-09-14 - Inline JS Confirmation Escaping in XHTML Attributes
+**Learning:** Single quotes inside inline JavaScript event attributes (e.g., `onclick="confirm('l'etudiant')"` in XHTML components) cause unhandled JS syntax errors and crash interactive prompts. Using French phrasing like `cet étudiant` entirely avoids single-quote escaping issues in XML attribute values while delivering clearer UI messaging.
+**Action:** Replace single quotes in inline `onclick` string literals with alternative phrasing (e.g., `cet étudiant`) or proper XML character references when defining JS confirmation popups.
