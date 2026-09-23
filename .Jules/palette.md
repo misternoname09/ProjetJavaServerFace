@@ -1,0 +1,3 @@
+## 2026-09-23 - Single quote escaping in inline JavaScript onclick attributes
+**Learning:** In XHTML/JSF markup, single quotes within inline JavaScript strings (such as inside `confirm('...')`) break JavaScript syntax if not properly escaped or avoided. Refactoring phrasing to eliminate inner single quotes (e.g. using "cet étudiant" instead of "l'étudiant") prevents JS execution errors cleanly without risking XML parser escaping bugs.
+**Action:** Always prefer phrasing that avoids apostrophes in inline JS confirm strings or use JS string escaping carefully when writing inline handlers in JSF component attributes.
