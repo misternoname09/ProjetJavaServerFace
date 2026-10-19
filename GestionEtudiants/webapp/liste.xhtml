@@ -48,7 +48,7 @@
                        <p:column>
                        <f:facet name="header">Supprimer</f:facet>
                        <h:commandButton value="Supprimer" 
-                                      onclick=" if(! confirm('voulez-vous supprimer l'etudiant')) return false;"
+                                      onclick="if(! confirm('Voulez-vous supprimer cet étudiant ?')) return false;" title="Supprimer cet étudiant"
                                       action="#{etudiantBean.deleteEtudiant(e.id)}"/>
                      </p:column>
                   </p:dataTable>
