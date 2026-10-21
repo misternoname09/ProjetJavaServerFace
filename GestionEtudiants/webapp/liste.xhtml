@@ -60,14 +60,14 @@
    
     <h1>Créer/Editer un Etudiant</h1>
      <p:panelGrid columns="3">
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
+                 <p:outputLabel for="nomInput" value="Nom: "/>
+                 <p:inputText id="nomInput" value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
                  <br/>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
+                 <p:outputLabel for="prenomInput" value="Prénom: "/>
+                 <p:inputText id="prenomInput" value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
                  <br/>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/>
+                 <p:outputLabel for="dateNaisInput" value="Date de Naissance: "/>
+                 <p:calendar id="dateNaisInput" value="#{etudiantBean.etudiant.datenaiss}" pattern="dd/MM/yyyy" a:placeholder="votre date de naissance"/>
                  <br/>
                  <h:commandButton value="Enregistrer" action="#{etudiantBean.addEtudiant(etudiantBean.etudiant)}" />
                  <br/>
