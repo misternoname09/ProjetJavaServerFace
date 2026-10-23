@@ -1,0 +1,3 @@
+## 2026-10-23 - Avoid Single Quotes in XHTML Inline JavaScript Handlers
+**Learning:** In JSF/XHTML templates, unescaped single quotes inside inline JavaScript attributes (such as `onclick="confirm('l'etudiant')"` in `h:commandButton`) cause runtime JS syntax errors that break button click event handlers. Using alternative phrasing without single quotes (e.g., `cet etudiant`) avoids escaping issues across JSF rendering and XML parsing layers.
+**Action:** Always inspect inline JavaScript string literals in JSF/XHTML files for single quote escaping issues, and prefer un-apostrophized phrasing or proper character entity encoding in `onclick` handlers.
