@@ -59,19 +59,22 @@
 </p:accordionPanel>
    
     <h1>Créer/Editer un Etudiant</h1>
-     <p:panelGrid columns="3">
-                 <p:outputLabel value="Nom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.nom}" a:placeholder="votre nom" />
-                 <br/>
-                 <p:outputLabel value="Prénom: "/>
-                 <p:inputText value="#{etudiantBean.etudiant.prenom}" a:placeholder="votre prénom" />
-                 <br/>
-                 <p:outputLabel value="Date de Naissance: "/>
-                 <p:calendar value="#{etudiantBean.etudiant.datenaiss}" a:placeholder="votre date de naissance"/>
-                 <br/>
-                 <h:commandButton value="Enregistrer" action="#{etudiantBean.addEtudiant(etudiantBean.etudiant)}" />
-                 <br/>
-     </p:panelGrid>
+    <h:form id="formAjout">
+        <p:messages id="messages" showDetail="true" closable="true" />
+        <p:panelGrid columns="3">
+            <p:outputLabel for="nom" value="Nom: " />
+            <p:inputText id="nom" value="#{etudiantBean.etudiant.nom}" required="true" requiredMessage="Le nom est obligatoire" a:placeholder="votre nom" />
+            <p:message for="nom" />
+            <p:outputLabel for="prenom" value="Prénom: " />
+            <p:inputText id="prenom" value="#{etudiantBean.etudiant.prenom}" required="true" requiredMessage="Le prénom est obligatoire" a:placeholder="votre prénom" />
+            <p:message for="prenom" />
+            <p:outputLabel for="datenaiss" value="Date de Naissance: " />
+            <p:calendar id="datenaiss" value="#{etudiantBean.etudiant.datenaiss}" pattern="dd/MM/yyyy" required="true" requiredMessage="La date de naissance est obligatoire" a:placeholder="votre date de naissance" />
+            <p:message for="datenaiss" />
+            <h:commandButton value="Enregistrer" action="#{etudiantBean.AddEtudiant(etudiantBean.etudiant)}" />
+            <h:commandButton value="Annuler" action="liste" immediate="true" />
+        </p:panelGrid>
+    </h:form>
     </h:body>
 
 </html>
