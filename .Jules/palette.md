@@ -1,0 +1,3 @@
+## 2025-05-18 - Avoid single-quote escaping issues in inline confirm dialogs
+**Learning:** In JSF/Facelets XHTML templates, inline JavaScript attributes like `onclick="if(! confirm('...')) return false;"` can break with a SyntaxError when unescaped single quotes or apostrophes are used inside French strings (e.g. `l'etudiant`). Using phrasing like `cet étudiant` avoids quotes entirely and prevents JavaScript runtime failures while maintaining clear French wording.
+**Action:** When adding confirmation dialogs or inline JS handlers in JSF, use phrasing without apostrophes or use properly escaped quotes, and verify syntax using a headless JS runner.
